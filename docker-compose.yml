@@ -1,0 +1,43 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    mailhog:
+      image: mailhog/mailhog:latest
+      container_name: wa71-mailhog
+      ports:
+        - "8101:8025"
+
+    mariadb:
+      image: mariadb:10.1
+      container_name: wa71-mariadb
+      volumes:
+        - ../mysql:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=webasyst
+        - MYSQL_DATABASE=wa
+        - MYSQL_USER=webasyst
+        - MYSQL_PASSWORD=webasyst
+      ports:
+        - "8103:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: wa71-webserver
+      working_dir: /webasyst
+      volumes:
+          - ../webasyst:/webasyst
+          - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8100:80"
+
+    php-fpm:
+      build: php-fpm
+      container_name: wa71-php-fpm
+      working_dir: /webasyst
+      volumes:
+        - ../webasyst:/webasyst
+        - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+

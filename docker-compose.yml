@@ -23,6 +23,15 @@ services:
       ports:
         - "8103:3306"
 
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin:latest
+      environment:
+          - PMA_HOST=mariadb
+          - PMA_USER=webasyst
+          - PMA_PASSWORD=webasyst
+      ports:
+       - "8104:80"
+
     webserver:
       image: nginx:alpine
       container_name: wa71-webserver
@@ -40,4 +49,3 @@ services:
       volumes:
         - ../webasyst:/webasyst
         - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
-

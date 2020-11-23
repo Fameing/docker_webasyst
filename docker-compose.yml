@@ -25,6 +25,7 @@ services:
 
     phpmyadmin:
       image: phpmyadmin/phpmyadmin:latest
+      container_name: wa71-phpmyadmin
       environment:
           - PMA_HOST=mariadb
           - PMA_USER=webasyst

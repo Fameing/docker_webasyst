@@ -1,11 +1,11 @@
-# Webasyst Docker с PHP-FPM 7.1, nginx и MariaDb 10.1
+# Webasyst Docker с PHP-FPM 7.4, nginx и MariaDb 10.1
 Конфигурация docker-compose для работы с фреймфорком и приложениями Webasyst
 
 Эта конфигурация содержит набор из следующих контейнеров:
 
 * **MariaDb** (10.1)
 * **nginx**
-* **php-fpm** (php 7.1)
+* **php-fpm** (php 7.4)
 * **mailhog** (smtp сервер для тестирования)
 
 Также приложены настроенные файлы конфигурации для разработки и CSV с набором товаров для тестового магазина

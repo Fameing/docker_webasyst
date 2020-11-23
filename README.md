@@ -53,7 +53,7 @@ PhpMyAdmin будет доступен по адресу `localhost:8104`.
 
 Xdebug настроен, но перед тем как пробовать его запустить, проверьте следующие параметры:
 
-1. В файле `docker-compose.ymp` указан `remote_host` в `XDEBUG_CONFIG`, это ip вашего контейнера
+1. В файле `docker-compose.yml` указан `remote_host` в `XDEBUG_CONFIG`, это ip вашего контейнера
 2. В файле `php-ini-overrides.ini` прочекайте путь до установленного xdebug и измените в случае необходимости
 
 #### Xdebug + PhpStorm

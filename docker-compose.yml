@@ -6,13 +6,13 @@ services:
 
     mailhog:
       image: mailhog/mailhog:latest
-      container_name: wa71-mailhog
+      container_name: wa74-mailhog
       ports:
         - "8101:8025"
 
     mariadb:
       image: mariadb:10.1
-      container_name: wa71-mariadb
+      container_name: wa74-mariadb
       volumes:
         - ../mysql:/var/lib/mysql
       environment:
@@ -25,7 +25,7 @@ services:
 
     phpmyadmin:
       image: phpmyadmin/phpmyadmin:latest
-      container_name: wa71-phpmyadmin
+      container_name: wa74-phpmyadmin
       environment:
           - PMA_HOST=mariadb
           - PMA_USER=webasyst
@@ -35,7 +35,7 @@ services:
 
     webserver:
       image: nginx:alpine
-      container_name: wa71-webserver
+      container_name: wa74-webserver
       working_dir: /webasyst
       volumes:
           - ../webasyst:/webasyst
@@ -45,11 +45,11 @@ services:
 
     php-fpm:
       build: php-fpm
-      container_name: wa71-php-fpm
+      container_name: wa74-php-fpm
       working_dir: /webasyst
       volumes:
         - ../webasyst:/webasyst
-        - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+        - ./php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
       environment:
         XDEBUG_CONFIG: remote_host=172.17.0.1 # ip контейнера
         PHP_IDE_CONFIG: "serverName=xdebug-docker"  

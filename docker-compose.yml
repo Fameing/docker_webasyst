@@ -49,3 +49,6 @@ services:
       volumes:
         - ../webasyst:/webasyst
         - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+      environment:
+        XDEBUG_CONFIG: remote_host=172.17.0.1 # ip контейнера
+        PHP_IDE_CONFIG: "serverName=xdebug-docker"  

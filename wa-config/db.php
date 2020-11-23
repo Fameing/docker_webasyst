@@ -3,7 +3,7 @@
 return array(
 	'default' => array(
 		'type' => 'mysqli',
-		'host' => 'wa71-mariadb',
+		'host' => 'wa74-mariadb',
 		'port' => '3306',
 		'user' => 'webasyst',
 		'password' => 'webasyst',

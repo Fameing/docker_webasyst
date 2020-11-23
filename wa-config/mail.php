@@ -1,4 +1,4 @@
 <?php
 return array(
-    'default' => ['type'=>'smtp', 'host'=>'wa71-mailhog', 'port'=>1025]
+    'default' => ['type'=>'smtp', 'host'=>'wa74-mailhog', 'port'=>1025]
 );

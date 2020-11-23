@@ -48,3 +48,26 @@ PhpMyAdmin будет доступен по адресу `localhost:8104`.
 ## Демо-товары для Магазина
 
 В папке `docker/demo-data` лежит CSV файл с товарами демо-магазина Webasyst. Его можно импортировать штатным инструментом Shop-Script
+
+## Xdebug
+
+Xdebug настроен, но перед тем как пробовать его запустить, проверьте следующие параметры:
+
+1. В файле `docker-compose.ymp` указан `remote_host` в `XDEBUG_CONFIG`, это ip вашего контейнера
+2. В файле `php-ini-overrides.ini` прочекайте путь до установленного xdebug и измените в случае необходимости
+
+#### Xdebug + PhpStorm
+Для использования Xdebug в PhpStorm, нужно настроить:
+
+1. `Languages and Frameworks/PHP/Debug` - установите порт Xdebug 19000
+2. `Languages and Frameworks/PHP/Debug/DBGp Proxy`:
+    * IDEKEY: **PHPSTORM**
+    * Host: **127.0.0.1**
+    * Port: **19000**
+3. `Languages and Frameworks/PHP/Servers` - создайте новый сервер с именем `xdebug-docker`:
+   * Host: **127.0.0.1**
+   * Port: **19000**
+   * Debugger: **Xdebug**
+   
+   Затем настройте мапы, путь должен начинаться с `/webasyst`, например:
+   `/home/Plugins/my_plugin >> /webasyst/wa-apps/shop/plugins/my_plugin`
